@@ -15,7 +15,7 @@ public class MainClass {
 		Moniter newMoniter = new Moniter("750DS1", "Lenovo", 20, new Resolution(1080, 1080));
 
 		MotherBoard newMotherBoard = new MotherBoard("RJ-r20jc134", "HP", 8, 6, "450-TV");
-		
+
 		/**
 		 * first power button is switched on after that program is getting loaded and
 		 * then pixel is drawn at a particular coordinate.
