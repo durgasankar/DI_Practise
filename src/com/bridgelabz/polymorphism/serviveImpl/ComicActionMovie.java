@@ -1,8 +1,9 @@
 package com.bridgelabz.polymorphism.serviveImpl;
 
 import com.bridgelabz.polymorphism.model.Movie;
+
 /**
- * 
+ * Comic action movie category and corresponding movie is hard coded.
  * 
  * @author Durgasankar Mishra
  * @created 2020-03-26

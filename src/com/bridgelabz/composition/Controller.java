@@ -1,4 +1,4 @@
-package com.bridgelabz.composition.controller;
+package com.bridgelabz.composition;
 
 import com.bridgelabz.composition.model.Dimension;
 import com.bridgelabz.composition.model.Resolution;
@@ -7,7 +7,7 @@ import com.bridgelabz.composition.service.Moniter;
 import com.bridgelabz.composition.service.MotherBoard;
 import com.bridgelabz.composition.service.PC;
 
-public class MainClass {
+public class Controller {
 
 	public static void main(String[] args) {
 		Case newCase = new Case("220B", "Dell", "240", new Dimension(20, 20, 5));
