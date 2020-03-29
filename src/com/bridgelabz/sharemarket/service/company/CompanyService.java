@@ -4,11 +4,10 @@ import com.bridgelabz.sharemarket.model.Stock;
 
 public interface CompanyService {
 
-	public boolean addStock(Stock newStock);
+	Stock addStock(Stock newStock);
 
-	public boolean removeStock(String stockSymbol);
+	Stock removeStock(String stockSymbol);
 
-	public void displayAllStocks();
-
+	void displayAllStocks();
 
 }

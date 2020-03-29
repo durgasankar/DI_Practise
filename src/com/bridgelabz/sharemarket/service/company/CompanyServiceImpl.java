@@ -1,33 +1,32 @@
 package com.bridgelabz.sharemarket.service.company;
 
+import com.bridgeLabz.utility.Util;
 import com.bridgelabz.sharemarket.model.Stock;
 import com.bridgelabz.sharemarket.service.Broker;
 
 public class CompanyServiceImpl implements CompanyService {
 
 	@Override
-	public boolean addStock(Stock newStock) {
-		if (newStock == null) {
-			return false;
-		}
-		newStock.getDateTimeInfo().setUpdationDate(Broker.currentFormattedDateTime());
+	public Stock addStock(Stock newStock) {
+		newStock.setStockId(Util.idGnerator());
+		newStock.setUpdationDate(Broker.currentFormattedDateTime());
 		Broker.getStockBrokerList().add(newStock);
-		return true;
+		return newStock;
 	}
 
 	@Override
-	public boolean removeStock(String stockSymbol) {
+	public Stock removeStock(String stockSymbol) {
 		Stock fetchedStock = Broker.findStock(stockSymbol, Broker.getStockBrokerList());
-		if (fetchedStock == null) {
-			return false;
+		if (fetchedStock != null) {
+			Broker.getStockBrokerList().remove(fetchedStock);
+				return fetchedStock;
 		}
-		Broker.getStockBrokerList().remove(fetchedStock);
-		return true;
+		return null;
 	}
 
 	@Override
 	public void displayAllStocks() {
-		Broker.getStockBrokerList().forEach(fetchedStock -> System.out.println(fetchedStock));
+		Broker.getStockBrokerList().forEach(System.out::println);
 	}
 
 }
