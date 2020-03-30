@@ -2,8 +2,11 @@ package com.bridgelabz.collections.lambda;
 
 
 import com.bridgeLabz.utility.Util;
+
+import java.util.Arrays;
+
 /**
- * Impl class of marker interface.
+ * Impl class of marker interface. prime checker , palindrome checker , even odd checker
  *
  * @author Durgasankar Mishra
  * @version 1.8
@@ -34,6 +37,23 @@ public class LambdaImpl {
             }
         };
     }
+    PalindromeChecker palindromeChecker(){
+        return inputString -> {
+            if (inputString.length() == 0) {
+                return false;
+            }
+            char[] ch1 = inputString.toCharArray();
+            char[] ch2 = inputString.toCharArray();
+            int lastChar = ch1.length - 1;
+
+            for(int i = 0; i < ch1.length / 2; ++i) {
+                char temp = ch1[i];
+                ch1[i] = ch1[lastChar - i];
+                ch1[lastChar - i] = temp;
+            }
+            return Arrays.equals(ch1, ch2);
+        };
+    }
 
     public static void main(String[] args) {
         /*takes impl class of functional interface and number from user and checks whether even or odd
@@ -47,6 +67,8 @@ public class LambdaImpl {
         System.out.println("Enter a number for prime checker : ");
         System.out.println(new LambdaImpl().primeChecker().isPrime(Util.scanner.nextInt()) ? "Prime Number" : "Not Prime");
 
-
+        /*Palindrome checker using lambda functional interface.*/
+        System.out.println("Enter a String for prime checker : ");
+        System.out.println(new LambdaImpl().palindromeChecker().isPalindrome(Util.scanner.next()) ? "Palindrome" : "Not Palindrome");
     }
 }
