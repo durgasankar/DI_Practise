@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Implementation of lambda predicate with stream.
+ * Implementation of lambda predicate with stream. map example using stream
  *
  * @author Durgasankar Mishra
  * @version 1.8
@@ -36,5 +36,19 @@ public class PredicateLambdaImpl {
                 .filter(usPeopleOnly.and(usPeopleStateNewYork))
                 .collect(Collectors.toList()));
 
+
+//    Reduced map example using stream api. Calculate average age of the people
+        System.out.println("GEt average age of the persons : " + personList.stream()
+                .mapToInt(Person::getAge)
+                .average()
+                .getAsDouble());
+
+//        Reduced map example using stream api.and with filter Calculate average age of the people age greater than 30
+        System.out.println("Get average age of the persons age above 30 : " + personList.stream()
+                .mapToInt(Person::getAge)
+                .filter(value -> value > 30)
+                .average()
+                .getAsDouble());
     }
+
 }
