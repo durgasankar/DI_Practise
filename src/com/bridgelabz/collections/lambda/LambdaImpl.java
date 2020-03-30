@@ -11,18 +11,15 @@ import com.bridgeLabz.utility.Util;
  */
 public class LambdaImpl {
 
-    private EvenOddChecker evenOddChecker;
-
     private static int checker(EvenOddChecker checker, int number){
         return checker.oddNumberChecker(number);
     }
     EvenOddChecker checker(){
-        EvenOddChecker checker = number -> {return number%2;};
-        return checker;
+        return number -> { return number%2;};
     }
 
     PrimeChecker primeChecker(){
-        PrimeChecker checker = number -> {
+        return  number -> {
             if (number <= 0) {
                 return false;
             } else if (number == 1) {
@@ -36,7 +33,6 @@ public class LambdaImpl {
                 return true;
             }
         };
-        return checker;
     }
 
     public static void main(String[] args) {
@@ -50,7 +46,6 @@ public class LambdaImpl {
 
         System.out.println("Enter a number for prime checker : ");
         System.out.println(new LambdaImpl().primeChecker().isPrime(Util.scanner.nextInt()) ? "Prime Number" : "Not Prime");
-
 
 
     }
