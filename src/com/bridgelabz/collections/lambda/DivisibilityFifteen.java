@@ -1,5 +1,4 @@
 package com.bridgelabz.collections.lambda;
-
 /**
  * Marker Interface which has only one method.
  *
@@ -8,8 +7,8 @@ package com.bridgelabz.collections.lambda;
  * @created 2020-03-30
  */
 @FunctionalInterface
-public interface EvenOddChecker {
+public interface DivisibilityFifteen {
 
-    int oddNumberChecker(int number);
+    boolean isDivisible(String enteredNumber);
 
 }

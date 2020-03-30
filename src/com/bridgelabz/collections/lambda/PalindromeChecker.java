@@ -8,5 +8,7 @@ package com.bridgelabz.collections.lambda;
  */
 @FunctionalInterface
 public interface PalindromeChecker {
+
     boolean isPalindrome(String inputString);
+
 }

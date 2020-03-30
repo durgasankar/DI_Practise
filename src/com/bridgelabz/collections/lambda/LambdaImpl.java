@@ -37,6 +37,7 @@ public class LambdaImpl {
             }
         };
     }
+
     PalindromeChecker palindromeChecker(){
         return inputString -> {
             if (inputString.length() == 0) {
@@ -55,6 +56,20 @@ public class LambdaImpl {
         };
     }
 
+    DivisibilityFifteen divisibilityFifteen(){
+        return enteredNumber -> {
+            int length = enteredNumber.length();
+            if (enteredNumber.charAt(length - 1) != '5' && enteredNumber.charAt(length - 1) != '0')
+                return false;
+            int sum = 0;
+            for (int i = 0; i < enteredNumber.length(); i++)
+                sum += (int) enteredNumber.charAt(i);
+            if (sum % 3 == 0)
+                return true;
+            return false;
+        };
+    }
+
     public static void main(String[] args) {
         /*takes impl class of functional interface and number from user and checks whether even or odd
         then prints the status*/
@@ -68,7 +83,11 @@ public class LambdaImpl {
         System.out.println(new LambdaImpl().primeChecker().isPrime(Util.scanner.nextInt()) ? "Prime Number" : "Not Prime");
 
         /*Palindrome checker using lambda functional interface.*/
-        System.out.println("Enter a String for prime checker : ");
+        System.out.println("Enter a String for palindrome checker : ");
         System.out.println(new LambdaImpl().palindromeChecker().isPalindrome(Util.scanner.next()) ? "Palindrome" : "Not Palindrome");
+
+        /*Divisibility by 15 checker using lambda functional interface.*/
+        System.out.println("Enter a String for divisibility 15 checker : ");
+        System.out.println(new LambdaImpl().divisibilityFifteen().isDivisible(Util.scanner.next()) ? "Divisible" : "Not Divisible");
     }
 }
