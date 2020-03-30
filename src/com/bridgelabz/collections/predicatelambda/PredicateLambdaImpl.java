@@ -1,12 +1,13 @@
 package com.bridgelabz.collections.predicatelambda;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Implementation of lambda predicate with stream. map example using stream
+ * Implementation of lambda predicate with stream. map example using stream, filtering a string.
  *
  * @author Durgasankar Mishra
  * @version 1.8
@@ -37,18 +38,29 @@ public class PredicateLambdaImpl {
                 .collect(Collectors.toList()));
 
 
-//    Reduced map example using stream api. Calculate average age of the people
+//        Reduced map example using stream api. Calculate average age of the people
         System.out.println("GEt average age of the persons : " + personList.stream()
                 .mapToInt(Person::getAge)
                 .average()
                 .getAsDouble());
 
-//        Reduced map example using stream api.and with filter Calculate average age of the people age greater than 30
+//         Reduced map example using stream api.and with filter Calculate average age of the people age greater than 30
         System.out.println("Get average age of the persons age above 30 : " + personList.stream()
                 .mapToInt(Person::getAge)
                 .filter(value -> value > 30)
                 .average()
                 .getAsDouble());
+
+//        Sorting and printing the person'S list using comparable interface
+        Collections.sort(personList, (person1, person2) -> person1.getName().compareTo(person2.getName()));
+        personList.forEach(System.out::println);
+        System.out.println("After sorting the person list using comparable interface" + personList);
+
+//    List of String by using filter and printing
+
+        System.out.println("filtering the name length greater than 5 characters and age less than 30 : " +  personList.stream()
+                .filter(person -> person.getName().length() > 5 && person.getAge() < 30)
+                .collect(Collectors.toList()));
     }
 
 }
