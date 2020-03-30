@@ -8,12 +8,14 @@ import java.util.stream.Stream;
 
 /**
  * Implementation of lambda predicate with stream. map example using stream, filtering a string.
+ * comparable interface.
  *
  * @author Durgasankar Mishra
  * @version 1.8
  * @created 2020-03-30
  */
 public class PredicateLambdaImpl {
+
 
     public static void main(String[] args) {
 
