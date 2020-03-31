@@ -49,6 +49,22 @@ public class BasicQuestions {
     }
 
 
+    private void printDuplicateCharactersInString(String inputString) {
+        int counter = 0;
+        char[] chars = inputString.toCharArray();
+        for (int i = 0; i < inputString.length(); i++) {
+            for (int j = i + 1; j < inputString.length(); j++) {
+                if (chars[i] == chars[j]) {
+                    System.out.print(chars[j] + ", ");
+                    counter++;
+                    break;
+                }
+            }
+        }
+        System.out.println("\nTotal duplicates : " + counter);
+    }
+
+
     public static void main(String[] args) {
         BasicQuestions questions = new BasicQuestions();
         System.out.println("count vowels and consonants in String -> ");
@@ -63,6 +79,9 @@ public class BasicQuestions {
                 new Person(50, "Jack", "AUS", "Sydney"),
                 new Person(40, "Chang", "CHI", "Wuhan"));
         questions.iterateUsingForLoop(personList);
+
+        System.out.println("The duplicate characters in a string : ");
+        questions.printDuplicateCharactersInString("Heyajabshcgaskjvhbncvgjkc");
 
     }
 }
