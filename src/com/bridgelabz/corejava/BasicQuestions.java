@@ -7,7 +7,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
+/**
+ * => count vowels and consonants in String,
+ * => iterate ArrayList using for-loop, while-loop, and advance for-loop.
+ * => find the duplicate characters in a string.
+ * => check Armstrong number.
+ * => remove all white spaces from a string without using replace()
+ * => print Fibonacci Series using Recursion.
+ * => iterate HashMap using While and advance for loop
+ * => count the number of words in a string using HashMap
+ *
+ * @author Durgasankar Mishra
+ * @version 1.8
+ * @created 2020-03-31
+ */
 public class BasicQuestions {
 
     private void countVowelsConsonantsWhiteSpacesInString(String inputString) {
@@ -96,6 +109,28 @@ public class BasicQuestions {
         return fibonacciRecursion(number - 2) + fibonacciRecursion(number - 1);
     }
 
+    public void countNumberOfWordsInStringUsingHashMap(String inputString) {
+        String[] words = inputString.split(" ");
+        Map<String, Integer> wordsMap = new HashMap<>();
+//        Adding data to set
+        for (String word : words) {
+            String fetchedWord = word.toLowerCase();
+            if (wordsMap.containsKey(fetchedWord)) {
+                int count = wordsMap.get(fetchedWord);
+                wordsMap.put(fetchedWord, count + 1);
+            } else {
+                wordsMap.put(fetchedWord, 1);
+            }
+        }
+//        displaying data and count.
+        Set<String> keys = wordsMap.keySet(); // list of unique words because it's a Set
+        TreeSet<String> sortedKeys = new TreeSet<>(keys); // ascending order of words
+        for (String value : sortedKeys) {
+            System.out.println(" Word : " + value + " & its count = " + wordsMap.get(value));
+        }
+
+    }
+
     public static void main(String[] args) throws IOException {
         BasicQuestions questions = new BasicQuestions();
         System.out.println("count vowels and consonants in String -> ");
@@ -147,6 +182,10 @@ public class BasicQuestions {
             Map.Entry<String, String> pair = iterator.next();
             System.out.println(pair.getKey() + " = " + pair.getValue());
         }
+
+        System.out.println("\nCount the number of words in a string using HashMap : ");
+        questions.countNumberOfWordsInStringUsingHashMap(
+                new BufferedReader(new InputStreamReader(System.in)).readLine());
 
     }
 }

@@ -1,7 +1,14 @@
 package com.bridgelabz.collections.predicatelambda;
 
 import java.util.List;
-
+/**
+ * Model class for Office person
+ *
+ * @author Durgasankar Mishra
+ * @version 1.8
+ * @created 2020-03-30
+ * @see {@link Person}
+ */
 public class OfficeInfo {
 
     private String officeName;
