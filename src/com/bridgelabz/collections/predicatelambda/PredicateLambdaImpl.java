@@ -100,6 +100,19 @@ public class PredicateLambdaImpl {
                 .average()
                 .getAsDouble());
 
+//        Count
+        System.out.println("Total count : " + officeInfoList.stream().count());
+
+//        Find First
+        System.out.println("First element : " + officeInfoList.stream().findFirst().get().toString());
+
+//        Find max
+        System.out.println("Max age : " + personList.stream().mapToInt(Person :: getAge).max().orElse(0));
+
+//      Find sum
+        System.out.println("Sum of ages : " + personList.stream().mapToInt(Person :: getAge).sum());
+
+
     }
 
 
