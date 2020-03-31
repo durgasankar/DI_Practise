@@ -88,6 +88,13 @@ public class BasicQuestions {
         return stringBuffer.toString();
     }
 
+    public int fibonacciRecursion(int number) {
+        if (number == 0)
+            return 0;
+        if (number == 1 || number == 2)
+            return 1;
+        return fibonacciRecursion(number - 2) + fibonacciRecursion(number - 1);
+    }
 
     public static void main(String[] args) throws IOException {
         BasicQuestions questions = new BasicQuestions();
@@ -114,6 +121,13 @@ public class BasicQuestions {
         System.out.println("Processed String : "
                 + questions.replaceAllSpaces(new BufferedReader(new InputStreamReader(System.in)).readLine()));
 
+
+        System.out.println("Enter the number of terns in fibonacci series : ");
+        int terms = Util.scanner.nextInt();
+        System.out.println("Series of " + terms + " numbers : ");
+        for (int i = 0; i < terms; i++) {
+            System.out.print(questions.fibonacciRecursion(i) + " ");
+        }
 
     }
 }
