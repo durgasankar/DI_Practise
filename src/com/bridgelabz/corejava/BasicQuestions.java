@@ -3,6 +3,9 @@ package com.bridgelabz.corejava;
 import com.bridgeLabz.utility.Util;
 import com.bridgelabz.collections.predicatelambda.Person;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class BasicQuestions {
@@ -74,8 +77,19 @@ public class BasicQuestions {
         return total == inputNumber;
     }
 
+    private String replaceAllSpaces(String inputString) {
+        char[] chars = inputString.toCharArray();
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < chars.length; i++) {
+            if ((chars[i] != ' ') && (chars[i] != '\t')) {
+                stringBuffer.append(chars[i]);
+            }
+        }
+        return stringBuffer.toString();
+    }
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         BasicQuestions questions = new BasicQuestions();
         System.out.println("count vowels and consonants in String -> ");
         questions.countVowelsConsonantsWhiteSpacesInString("Hy this is counting practise lets test.");
@@ -95,6 +109,10 @@ public class BasicQuestions {
 
         System.out.println("Please Enter a number for checking Armstrong : ");
         System.out.println("result : " + questions.isArmStrongNumber(Util.scanner.nextInt()));
+
+        System.out.println("Please enter a String to remove space : ");
+        System.out.println("Processed String : "
+                + questions.replaceAllSpaces(new BufferedReader(new InputStreamReader(System.in)).readLine()));
 
 
     }
