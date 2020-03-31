@@ -129,5 +129,24 @@ public class BasicQuestions {
             System.out.print(questions.fibonacciRecursion(i) + " ");
         }
 
+        System.out.println("\n\nIterating a hash map using foreach : ");
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "Ramesh");
+        map.put("key2", "Sam");
+        map.put("key3", "Jack");
+        map.forEach((key, value) -> System.out.println(key + " = " + value));
+
+        System.out.println("\nIterating a hash map using advanced for loop : ");
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
+
+        System.out.println("\nIterating a hash map using while and iterator : ");
+        Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> pair = iterator.next();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+        }
+
     }
 }
