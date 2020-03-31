@@ -1,9 +1,9 @@
 package com.bridgelabz.corejava;
 
+import com.bridgeLabz.utility.Util;
 import com.bridgelabz.collections.predicatelambda.Person;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class BasicQuestions {
 
@@ -48,7 +48,6 @@ public class BasicQuestions {
         System.out.println("While loop all names : " + whileLoopPersonList.toString());
     }
 
-
     private void printDuplicateCharactersInString(String inputString) {
         int counter = 0;
         char[] chars = inputString.toCharArray();
@@ -62,6 +61,17 @@ public class BasicQuestions {
             }
         }
         System.out.println("\nTotal duplicates : " + counter);
+    }
+
+    private boolean isArmStrongNumber(int inputNumber) {
+        int transferredNumber, tempValue, total = 0;
+        transferredNumber = inputNumber;
+        while (transferredNumber != 0) {
+            tempValue = transferredNumber % 10;
+            total += tempValue * tempValue * tempValue;
+            transferredNumber /= 10;
+        }
+        return total == inputNumber;
     }
 
 
@@ -81,7 +91,11 @@ public class BasicQuestions {
         questions.iterateUsingForLoop(personList);
 
         System.out.println("The duplicate characters in a string : ");
-        questions.printDuplicateCharactersInString("Heyajabshcgaskjvhbncvgjkc");
+        questions.printDuplicateCharactersInString("Duplicate characters in a string");
+
+        System.out.println("Please Enter a number for checking Armstrong : ");
+        System.out.println("result : " + questions.isArmStrongNumber(Util.scanner.nextInt()));
+
 
     }
 }
