@@ -100,6 +100,8 @@ public class PredicateLambdaImpl {
                 .average()
                 .getAsDouble());
 
+//        Arithmetic operations using java 8
+
 //        Count
         System.out.println("Total count : " + officeInfoList.stream().count());
 
