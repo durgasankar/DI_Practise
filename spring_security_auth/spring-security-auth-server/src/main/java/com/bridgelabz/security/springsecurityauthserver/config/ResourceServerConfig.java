@@ -8,6 +8,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
+/**
+ * Security configuration class which extends
+ * {@link WebSecurityConfigurerAdapter}.
+ * 
+ * @author Durgasankar Mishra
+ * @created 2020-04-01
+ * @version 1.8
+ */
 @EnableResourceServer
 @Configuration
 public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
@@ -15,6 +23,9 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
+	/**
+	 * allowing the permission access for uri
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
@@ -22,6 +33,9 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 				.authenticated().and().formLogin().permitAll();
 	}
 
+	/**
+	 * configuring selective authentication access using userId, password and role.
+	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
