@@ -2,7 +2,26 @@ package com.bridgelabz.datastructure.linkedlist;
 
 import java.util.NoSuchElementException;
 
+/**
+ * Linked list class which has the functionality of
+ * => adding a node at first
+ * => adding a node at last
+ * => removing a node from last
+ * => print all nodes
+ *
+ * @param <G> generic type
+ * @author Durgasankar Mishra
+ * @version 1.8
+ * @created 2020-05-03
+ */
+
 public class LinkedList<G> {
+    /**
+     * @param <G> generic type
+     * @author Durgasankar Mishra
+     * @version 1.8
+     * @created 2020-04-03
+     */
     private class Node<G> {
         private G data;
         private Node<G> next;
@@ -16,6 +35,7 @@ public class LinkedList<G> {
             return data;
         }
     }
+
     private Node<G> head;
     private long length;
 
@@ -28,7 +48,7 @@ public class LinkedList<G> {
         return length;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.length == 0;
     }
 
@@ -65,6 +85,7 @@ public class LinkedList<G> {
         length++;
         return true;
     }
+
     public G remove() {
         Node<G> current = head;
         if (isEmpty()) {

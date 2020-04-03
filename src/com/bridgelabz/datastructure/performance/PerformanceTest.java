@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Performance testing between ArrayList and LinkedList
+ * => time consumption on adding
+ * => time consumption on removing
+ * => time consumption on iterating
+ *
+ * @author Durgasankar Mishra
+ * @version 1.8
+ * @created 2020-04-03
+ */
 public class PerformanceTest {
 
     private void iterateTillEnd( List<Long> integers ) {
