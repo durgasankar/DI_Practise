@@ -87,7 +87,7 @@ public class LambdaImpl {
         System.out.println(new LambdaImpl().palindromeChecker().isPalindrome(Util.scanner.next()) ? "Palindrome" : "Not Palindrome");
 
         /*Divisibility by 15 checker using lambda functional interface.*/
-        System.out.println("Enter a String for divisibility 15 checker : ");
+        System.out.println("Enter a number for divisibility 15 checker : ");
         System.out.println(new LambdaImpl().divisibilityFifteen().isDivisible(Util.scanner.next()) ? "Divisible" : "Not Divisible");
     }
 }
