@@ -28,5 +28,10 @@ public class Implementation {
         int[] sortedArray = new BubbleSorting().bubbleSort( intArray );
         System.out.println( "After sorting by bubble sort : " );
         for (int i : sortedArray) System.out.print( i + ", " );
+
+        System.out.println( "\n\nAfter sorting by bubble sort : " );
+        String[] stringArray = {"Ali", "All", "Zal", "Nal", "Hal"};
+        String[] sortedStringArray = new BubbleSorting().bubbleSort( stringArray );
+        for (String str : sortedStringArray) System.out.print( str + ", " );
     }
 }
