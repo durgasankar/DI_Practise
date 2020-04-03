@@ -115,6 +115,17 @@ public class LinkedList<G> {
         printAlternativeNodesUsingRecursion( headNode.next, !isOdd );
     }
 
+    public Node<G> removeDuplicateFromSortedList(Node headNode){
+        if (headNode == null)
+            return null;
+        /*Remove duplicate from the list after head node*/
+        headNode.next = removeDuplicateFromSortedList( headNode.next );
+
+        if (headNode.next != null && headNode.next.data == headNode.data)
+            return headNode.next;
+        return headNode;
+    }
+
 
 
 }

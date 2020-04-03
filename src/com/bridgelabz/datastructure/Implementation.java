@@ -15,19 +15,24 @@ public class Implementation {
     public static void main( String[] args ) {
 //        Linked list operations
         LinkedList<Integer> list = new LinkedList<>();
-        list.insertAtStart( 10 );
-        list.insertAtStart( 20 );
-        list.insertAtStart( 30 );
-        list.insertAtLast( 40 );
         list.insertAtStart( 50 );
+        list.insertAtStart( 40 );
+        list.insertAtStart( 30 );
+        list.insertAtStart( 30 );
+        list.insertAtStart( 20);
+        list.insertAtStart( 10 );
+        list.insertAtStart( 10 );
         list.insertAtLast( 70 );
-        LinkedList<Integer>.Node<Integer> headNode = list.insertAtStart( 60 );
+        LinkedList<Integer>.Node<Integer> headNode = list.insertAtStart( 5 );
         list.remove();
         list.print();
         System.out.println( "length : " + list.getLength() );
 
         System.out.println( "Alternate nodes of a linked list using Recursion : \n" );
         list.printAlternativeNodesUsingRecursion( headNode, true );
+        list.removeDuplicateFromSortedList(headNode);
+        System.out.println("after removing duplicates : ");
+        list.print();
 
 
 //        Bubble sort operations
