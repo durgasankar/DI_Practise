@@ -3,7 +3,7 @@ package com.bridgelabz.datastructure;
 import com.bridgelabz.datastructure.linkedlist.LinkedList;
 
 /**
- *  Linked list Implementation class
+ * Linked list Implementation class
  *
  * @author Durgasankar Mishra
  * @version 1.8
@@ -19,14 +19,21 @@ public class Implementation {
         list.insertAtStart( 20 );
         list.insertAtStart( 30 );
         list.insertAtLast( 40 );
+        list.insertAtStart( 50 );
+        list.insertAtLast( 70 );
+        LinkedList<Integer>.Node<Integer> headNode = list.insertAtStart( 60 );
         list.remove();
         list.print();
-        System.out.println("length : " + list.getLength());
+        System.out.println( "length : " + list.getLength() );
+
+        System.out.println( "Alternate nodes of a linked list using Recursion : \n" );
+        list.printAlternativeNodesUsingRecursion( headNode, true );
+
 
 //        Bubble sort operations
         int[] intArray = {2, 5, 8, 1, 2, 6, 4, 7, 9, 2, 1, 8, 2, 5, 1, 6, 8, 5, 3, 4, 3, 4, 12, 6, 62};
         int[] sortedArray = new BubbleSorting().bubbleSort( intArray );
-        System.out.println( "After sorting by bubble sort : " );
+        System.out.println( "\nAfter sorting by bubble sort : " );
         for (int i : sortedArray) System.out.print( i + ", " );
 
         System.out.println( "\n\nAfter sorting by bubble sort : " );

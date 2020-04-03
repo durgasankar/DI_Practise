@@ -8,6 +8,7 @@ import java.util.NoSuchElementException;
  * => adding a node at last
  * => removing a node from last
  * => print all nodes
+ * => print alternate nodes of a linked list using recursion
  *
  * @param <G> generic type
  * @author Durgasankar Mishra
@@ -17,12 +18,14 @@ import java.util.NoSuchElementException;
 
 public class LinkedList<G> {
     /**
+     * Generic type inner Node class
+     *
      * @param <G> generic type
      * @author Durgasankar Mishra
      * @version 1.8
      * @created 2020-04-03
      */
-    private class Node<G> {
+    public class Node<G> {
         private G data;
         private Node<G> next;
 
@@ -61,7 +64,7 @@ public class LinkedList<G> {
         System.out.println( "null" );
     }
 
-    public boolean insertAtStart( G data ) {
+    public Node<G> insertAtStart( G data ) {
         Node<G> newNode = new Node<>( data );
         if (isEmpty()) {
             head = newNode;
@@ -70,10 +73,10 @@ public class LinkedList<G> {
             head = newNode;
         }
         length++;
-        return true;
+        return newNode;
     }
 
-    public boolean insertAtLast( G data ) {
+    public Node<G> insertAtLast( G data ) {
         Node<G> newNode = new Node<G>( data );
         if (isEmpty()) {
             head = newNode;
@@ -83,7 +86,7 @@ public class LinkedList<G> {
             current.next = newNode;
         }
         length++;
-        return true;
+        return newNode;
     }
 
     public G remove() {
@@ -95,7 +98,6 @@ public class LinkedList<G> {
             length--;
             return current.data;
         } else {
-
             while (current.next.next != null) {
                 current = current.next;
             }
@@ -104,8 +106,15 @@ public class LinkedList<G> {
             length--;
             return removedData;
         }
-
     }
+
+    public void printAlternativeNodesUsingRecursion(Node headNode, boolean isOdd){
+        if (headNode == null) return;
+        if (isOdd == true)
+            System.out.print( headNode.data + " " );
+        printAlternativeNodesUsingRecursion( headNode.next, !isOdd );
+    }
+
 
 
 }

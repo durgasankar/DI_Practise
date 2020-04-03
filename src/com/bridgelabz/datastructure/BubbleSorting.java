@@ -22,7 +22,7 @@ public class BubbleSorting {
         return array;
     }
 
-    public static String[] bubbleSort( String[] stringArray ) {
+    public String[] bubbleSort( String[] stringArray ) {
         // comparing adjacent strings
         for (int j = 0; j < stringArray.length; j++)
             for (int i = j + 1; i < stringArray.length; i++)
