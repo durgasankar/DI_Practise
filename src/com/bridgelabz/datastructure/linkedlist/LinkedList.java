@@ -110,12 +110,12 @@ public class LinkedList<G> {
 
     public void printAlternativeNodesUsingRecursion(Node headNode, boolean isOdd){
         if (headNode == null) return;
-        if (isOdd == true)
+        if (isOdd)
             System.out.print( headNode.data + " " );
         printAlternativeNodesUsingRecursion( headNode.next, !isOdd );
     }
 
-    public Node<G> removeDuplicateFromSortedList(Node headNode){
+    public Node removeDuplicateFromSortedList( Node headNode){
         if (headNode == null)
             return null;
         /*Remove duplicate from the list after head node*/
@@ -125,7 +125,5 @@ public class LinkedList<G> {
             return headNode.next;
         return headNode;
     }
-
-
 
 }

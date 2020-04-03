@@ -1,5 +1,6 @@
 package com.bridgelabz.datastructure;
 
+import com.bridgelabz.datastructure.linkedlist.CircularLinkedList;
 import com.bridgelabz.datastructure.linkedlist.LinkedList;
 
 /**
@@ -45,5 +46,20 @@ public class Implementation {
         String[] stringArray = {"Ali", "All", "Zal", "Nal", "Hal"};
         String[] sortedStringArray = new BubbleSorting().bubbleSort( stringArray );
         for (String str : sortedStringArray) System.out.print( str + ", " );
+
+
+        System.out.println("\n\nCircular linkedList : ");
+        CircularLinkedList circularLinkedList = new CircularLinkedList();
+        CircularLinkedList.Node head = null;
+        head = circularLinkedList.insertToCircularLinkedList( head, 15 );
+        head = circularLinkedList.insertToCircularLinkedList( head, 14 );
+        head = circularLinkedList.insertToCircularLinkedList( head, 13 );
+        head = circularLinkedList.insertToCircularLinkedList( head, 22 );
+        head = circularLinkedList.insertToCircularLinkedList( head, 17 );
+        circularLinkedList.convertSinglyLinkedListToCircular( head );
+        System.out.print( "Display Circular Linked List : \n" );
+        circularLinkedList.displayCircularLinkedList( head );
+
+
     }
 }
