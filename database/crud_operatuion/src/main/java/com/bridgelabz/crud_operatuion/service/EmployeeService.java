@@ -5,6 +5,9 @@ import com.bridgelabz.crud_operatuion.model.PersonalInfo;
 import com.bridgelabz.crud_operatuion.model.SalaryInfo;
 import com.bridgelabz.crud_operatuion.model.dto.EmployeeDto;
 import com.bridgelabz.crud_operatuion.repository.EmployeeRepository;
+
+import java.util.Optional;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +39,15 @@ public class EmployeeService {
 		employeeRepository.save(employee);
 		return true;
 
+	}
+
+	public boolean removeEmployee(String emailId) {
+		Optional<Employee> fetchedEmployee = employeeRepository.findByEmailId(emailId);
+		if(!fetchedEmployee.isPresent()) {
+			return false;
+		}
+		employeeRepository.deleteById(fetchedEmployee.get().getEmployeeId());
+		return true;
 	}
 
 }
