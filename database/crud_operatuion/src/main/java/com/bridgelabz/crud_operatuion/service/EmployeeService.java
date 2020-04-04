@@ -6,6 +6,7 @@ import com.bridgelabz.crud_operatuion.model.SalaryInfo;
 import com.bridgelabz.crud_operatuion.model.dto.EmployeeDto;
 import com.bridgelabz.crud_operatuion.repository.EmployeeRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -43,11 +44,14 @@ public class EmployeeService {
 
 	public boolean removeEmployee(String emailId) {
 		Optional<Employee> fetchedEmployee = employeeRepository.findByEmailId(emailId);
-		if(!fetchedEmployee.isPresent()) {
+		if (!fetchedEmployee.isPresent())
 			return false;
-		}
 		employeeRepository.deleteById(fetchedEmployee.get().getEmployeeId());
 		return true;
+	}
+
+	public List<Employee> getEmployees() {
+		return employeeRepository.findAll();
 	}
 
 }
