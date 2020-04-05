@@ -1,6 +1,7 @@
 package com.bridgelabz.crud_operatuion.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,9 +54,18 @@ public class EmployeeCondtroller {
 		return ResponseEntity.status(HttpStatus.OK).body(new Response("Employee removed Successfully", 200));
 	}
 
-	@GetMapping("get")
-	public ResponseEntity<Response> getEmployees() {
+	@GetMapping("admin/get")
+	public ResponseEntity<Response> getAdminEmployees() {
 		List<Employee> employees = employeeService.getEmployees();
+		return ResponseEntity.status(HttpStatus.OK).body(new Response("Employees list ", 200, employees));
+	}
+
+	@GetMapping("get")
+	public ResponseEntity<Response> getEmployeesSimple() {
+		List<Employee> employees = employeeService.getEmployees()
+				.stream()
+				.filter(employee -> employee.getPersonalInfo().getFirstName().length() > 5)
+				.collect(Collectors.toList());
 		return ResponseEntity.status(HttpStatus.OK).body(new Response("Employees list ", 200, employees));
 	}
 }
