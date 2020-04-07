@@ -1,4 +1,4 @@
-package com.bridgelabz.datastructure;
+package com.bridgelabz.datastructure.sorting;
 
 /**
  * Bubble sort operations in integer
