@@ -1,11 +1,21 @@
-package com.bridgelabz.abstraction;
+package com.bridgelabz.abstraction.revenue_calc_example;
+
+import com.bridgelabz.abstraction.revenue_calc_example.*;
+import com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class SalesPredictor {
+/**
+ * Implementation class main class
+ *
+ * @author Durgasankar Mishra
+ * @version 1.8
+ * @created 2020-04-10
+ */
+public class Implementation {
 
-    private static double printTotalRevenue( final List<ClientEngagement> engagements, final RevenueCalculator calculator ) {
+    private static double printTotalRevenue( final List<com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement> engagements, final RevenueCalculator calculator ) {
 //        using stream
         return engagements
                 .stream()
@@ -13,10 +23,10 @@ public class SalesPredictor {
                 .sum();
     }
 
-    private static double getAdvancedForLoopTotal( List<ClientEngagement> engagements, RevenueCalculator calculator ) {
+    private static double getAdvancedForLoopTotal( List<com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement> engagements, RevenueCalculator calculator ) {
 //        advanced for loop using
         double advancedForLoopTotal = 0;
-        for (ClientEngagement clientEngagement : engagements)
+        for (com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement clientEngagement : engagements)
             advancedForLoopTotal += calculator.calculate( clientEngagement );
         return advancedForLoopTotal;
     }
@@ -24,11 +34,11 @@ public class SalesPredictor {
 
     public static void main( String[] args ) {
 
-        final List<ClientEngagement> engagements = Arrays.asList(
-                new ClientEngagement( "Jack", 30, 50000 ),
-                new ClientEngagement( "Mac", 40, 30000 ),
-                new ClientEngagement( "Sim", 20, 40000 ),
-                new ClientEngagement( "Kim", 50, 20000 ),
+        final List<com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement> engagements = Arrays.asList(
+                new com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement( "Jack", 30, 50000 ),
+                new com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement( "Mac", 40, 30000 ),
+                new com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement( "Sim", 20, 40000 ),
+                new com.bridgelabz.abstraction.revenue_calc_example.ClientEngagement( "Kim", 50, 20000 ),
                 new ClientEngagement( "Jim", 25, 60000 )
         );
 //        fixed rate

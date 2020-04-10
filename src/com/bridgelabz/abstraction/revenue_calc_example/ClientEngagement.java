@@ -1,5 +1,12 @@
-package com.bridgelabz.abstraction;
+package com.bridgelabz.abstraction.revenue_calc_example;
 
+/**
+ *  Model class
+ *
+ * @author Durgasankar Mishra
+ * @version 1.8
+ * @created 2020-04-10
+ */
 public class ClientEngagement {
 
     private String name;
