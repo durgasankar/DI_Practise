@@ -4,7 +4,23 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SalesPredictor {
-    private static final double STANDARD_FEE = 2000;
+
+    private static double printTotalRevenue( final List<ClientEngagement> engagements, final RevenueCalculator calculator ) {
+//        using stream
+        return engagements
+                .stream()
+                .mapToDouble( calculator :: calculate )
+                .sum();
+    }
+
+    private static double getAdvancedForLoopTotal( List<ClientEngagement> engagements, RevenueCalculator calculator ) {
+//        advanced for loop using
+        double advancedForLoopTotal = 0;
+        for (ClientEngagement clientEngagement : engagements)
+            advancedForLoopTotal += calculator.calculate( clientEngagement );
+        return advancedForLoopTotal;
+    }
+
 
     public static void main( String[] args ) {
 
@@ -15,19 +31,31 @@ public class SalesPredictor {
                 new ClientEngagement( "Kim", 50, 20000 ),
                 new ClientEngagement( "Jim", 25, 60000 )
         );
-        RevenueCalculator calculator = new FixedFeeCalculator( STANDARD_FEE );
+//        fixed rate
+        System.out.println("fixed rate : ");
+        RevenueCalculator calculator = new FixedFeeCalculator( FixedFeeCalculator.STANDARD_FEE );
+        //        calculate revenue
 
-//        calculate revenue
-//        stream using
-        double total = engagements
-                .stream()
-                .mapToDouble( calculator :: calculate )
-                .sum();
+        double total = printTotalRevenue( engagements, calculator );
         System.out.println( "total = " + total );
 
-//        advanced for loop using
-        double advancedForLoopTotal = 0;
-        for (ClientEngagement clientEngagement : engagements) advancedForLoopTotal += calculator.calculate( clientEngagement );
+        double advancedForLoopTotal = getAdvancedForLoopTotal( engagements, calculator );
         System.out.println( "advancedForLoopTotal = " + advancedForLoopTotal );
+
+//        Royalty percentage rate
+        System.out.println("royalty percentage rate : ");
+        calculator = new RoyaltyShareCalculator( RoyaltyShareCalculator.STANDARD_ROYALTY_PERCENTAGE );
+        //        calculate revenue
+        System.out.println( "total = " +  printTotalRevenue( engagements, calculator ) );
+
+//        Hourly rate
+        System.out.println("hourly rate rate : ");
+        calculator = new HourlyRateRevenueCalculator( HourlyRateRevenueCalculator.STANDARD_HOURLY_RATE );
+//        calculate revenue
+        System.out.println( "total = " +  printTotalRevenue( engagements, calculator ) );
+
     }
+
+
+
 }

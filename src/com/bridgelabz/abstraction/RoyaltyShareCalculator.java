@@ -2,7 +2,7 @@ package com.bridgelabz.abstraction;
 
 public class RoyaltyShareCalculator implements RevenueCalculator {
 
-    private static final double STANDARD_ROYALTY_PERCENTAGE = 0.15;
+    public static final double STANDARD_ROYALTY_PERCENTAGE = 0.15;
     private final double royaltyPercentage;
 
     public RoyaltyShareCalculator( final double royaltyPercentage ) { this.royaltyPercentage = royaltyPercentage; }
